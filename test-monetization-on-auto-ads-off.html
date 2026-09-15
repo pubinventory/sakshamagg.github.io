@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust & Mind - Modern Magazine</title>
+    <!-- Critical Meta Tag for Testing -->
+    <meta name="google_rewarded_content_pause_target_id" content="main-article">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-bg: #fdfbf7;
+            --color-text: #2c2c2c;
+            --color-text-light: #5a5a5a;
+            --color-accent: #c49a6c;
+            --color-border: #e8e4db;
+            --color-header-bg: rgba(253, 251, 247, 0.95);
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            
+            --max-width: 1200px;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--color-header-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: var(--spacing-sm) 0;
+        }
+
+        .header-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-text-light);
+        }
+
+        .hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 var(--spacing-md);
+        }
+
+        .hero-category {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .main-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        article {
+            background: white;
+            padding: var(--spacing-lg) var(--spacing-md);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+
+        .author-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        article p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.8rem;
+            color: var(--color-text-light);
+        }
+
+        article p:first-of-type::first-letter {
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            float: left;
+            line-height: 0.8;
+            padding-right: 0.5rem;
+            color: var(--color-accent);
+        }
+
+        article h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--color-text);
+        }
+
+        .article-image {
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .article-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .article-image:hover img {
+            transform: scale(1.02);
+        }
+
+        aside {
+            position: sticky;
+            top: 100px; /* Offset for sticky header */
+            align-self: start;
+        }
+
+        .sidebar-widget {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .widget-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--color-border);
+            position: relative;
+        }
+        
+        .widget-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--color-accent);
+        }
+
+        .trending-post {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .trending-post:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .trending-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 4px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .trending-content h4 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            line-height: 1.3;
+            margin-bottom: 0.25rem;
+        }
+
+        .trending-content span {
+            font-size: 0.8rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        footer {
+            background-color: var(--color-text);
+            color: white;
+            text-align: center;
+            padding: var(--spacing-lg) var(--spacing-md);
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            aside {
+                position: static;
+            }
+            
+            nav ul {
+                display: none; /* Simple mobile nav hiding for this demo */
+            }
+        }
+        
+        @media (max-width: 600px) {
+            article {
+                padding: var(--spacing-md) var(--spacing-sm);
+            }
+            .hero {
+                height: 50vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">Wanderlust & Mind</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Travel</a></li>
+                    <li><a href="#">Lifestyle</a></li>
+                    <li><a href="#">Nature</a></li>
+                    <li><a href="#">Journal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-category">Mindful Journeys</span>
+            <h1 class="hero-title">Embracing the Ethereal: A Labyrinthine Journey Through Untamed Serenity</h1>
+        </div>
+    </section>
+
+    <main class="main-container">
+        
+        <article id="main-article">
+            <div class="article-meta">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Author Profile" class="author-img">
+                <div>
+                    <strong>Written by Elara Vance</strong>
+                    <br>
+                    <span>Published on October 24, 2023 • 8 min read</span>
+                </div>
+            </div>
+
+            <p>To step into the heart of the ancient wood is to surrender to something infinitely larger than oneself. There is an effervescent quality to the morning air, a crisp, almost tangible luminescence that filters through the dense, labyrinthine canopy above. Here, time ceases its relentless forward march, unraveling instead into serendipitous moments of profound stillness. The ground beneath, blanketed in decades of fallen leaves, feels like a spongy, living testament to the cyclical nature of all things, silently absorbing the echoes of our hurried lives.</p>
+
+            <p>As we ventured deeper, the familiar cacophony of the modern world was replaced by a symphony of exquisite subtlety. The wind did not merely blow; it whispered through the archaic pines, carrying with it the redolent scent of damp earth and nascent blooming flora. Every step felt like a cautious negotiation with the terrain, a mindful dance between the roots that snaked across the path like sleeping serpents. It is in these untouched enclaves that one truly understands the concept of the sublime—a beauty so profound it borders on the overwhelming.</p>
+
+            <div class="article-image">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Sunlight piercing through a dense forest canopy">
+            </div>
+
+            <h2>The Labyrinth of the Mind</h2>
+
+            <p>Much like the meandering trails we navigated, the journey inward is rarely linear. It is a labyrinthine exploration of our own internal landscapes, requiring the same patience and quiet observation as tracking an elusive creature through the underbrush. In the absence of digital tethers, the mind begins to untangle. Thoughts that once spun in chaotic, frenetic circles begin to settle like dust in an abandoned room, revealing the polished floorboards of our truer selves beneath.</p>
+
+            <p>We found ourselves resting by a stream whose waters ran clear and cold, an ethereal ribbon cutting through the verdant landscape. The rhythmic, susurrating sound of the water cascading over smooth, time-worn stones became a mantra, washing away the residual anxiety of city life. It is peculiar how such simple, primordial elements—water, stone, wind, wood—can act as the most potent salves for a spirit weary from the relentless demands of the contemporary epoch.</p>
+
+            <p>During these hours of contemplative silence, a serendipitous realization took hold. We are not merely observers of this natural world; we are intricately woven into its tapestry. The separation we often feel is an illusion, a byproduct of concrete walls and glowing screens. When we allow ourselves to be fully present, feeling the rough texture of bark or the ephemeral touch of mist on our cheeks, we reclaim a forgotten piece of our own humanity.</p>
+
+            <div class="article-image">
+                <img src="https://images.unsplash.com/photo-1504280650361-b847b2c75908?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="A quiet, misty morning on a serene lake">
+            </div>
+
+            <h2>Embracing Ephemeral Beauty</h2>
+
+            <p>The afternoon brought a shift in the light, casting long, dramatic shadows that danced across the forest floor. The luminescence of the golden hour transformed the woods into a theater of ephemeral beauty. Every leaf seemed to glow from within, radiating a transient brilliance before the impending dusk. It served as a poignant reminder of impermanence, urging us to cherish the present moment rather than grieving its inevitable passing.</p>
+
+            <p>As evening descended, painting the sky in bruised hues of indigo and violet, the nocturnal inhabitants began their subtle overture. The air grew cooler, carrying the promise of a starlit vigil. Sitting around a modest campfire, the flames provided a flickering, mesmerizing focal point. In the dancing firelight, faces were illuminated with a warm, archaic glow, and stories were shared—not of achievements or ambitions, but of quiet moments, of dreams, and of the profound peace found in the heart of nowhere.</p>
+
+            <p>Ultimately, to retreat into the wild is not an escape from reality, but a return to it. It is an opportunity to calibrate our internal compasses, to replace the artificial metrics of success with the undeniable truth of a setting sun or a towering redwood. As we finally packed our belongings to return to the fray, we carried with us an indelible sense of tranquility—a quiet, resolute stillness that would serve as our sanctuary amidst the noise of the days to come.</p>
+        </article>
+
+        <aside>
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Trending Stories</h3>
+                
+                <a href="#" class="trending-post">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Roadtrip" class="trending-img">
+                    <div class="trending-content">
+                        <span>Wanderlust</span>
+                        <h4>The Art of the Unplanned Roadtrip</h4>
+                    </div>
+                </a>
+
+                <a href="#" class="trending-post">
+                    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Coffee" class="trending-img">
+                    <div class="trending-content">
+                        <span>Lifestyle</span>
+                        <h4>Cultivating Morning Rituals</h4>
+                    </div>
+                </a>
+
+                <a href="#" class="trending-post">
+                    <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Mountains" class="trending-img">
+                    <div class="trending-content">
+                        <span>Nature</span>
+                        <h4>Finding Solitude in High Altitudes</h4>
+                    </div>
+                </a>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Newsletter</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--color-text-light);">Join our community of mindful travelers. Get weekly inspiration delivered straight to your inbox.</p>
+                <form onsubmit="event.preventDefault();" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <input type="email" placeholder="Your email address" style="padding: 0.8rem; border: 1px solid var(--color-border); border-radius: 4px; font-family: var(--font-body);">
+                    <button type="submit" style="padding: 0.8rem; background-color: var(--color-accent); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Subscribe</button>
+                </form>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Wanderlust & Mind. Crafted for a mindful journey.</p>
+    </footer>
+
+</body>
+</html>
